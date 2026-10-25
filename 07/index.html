@@ -1,0 +1,20 @@
+<!doctype html><html lang="hr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poruka od: Ivana Kajić i djeca</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"></head><body><main class="card"><div class="couple">Mari &amp; Mario</div><div class="date">31 · 07 · 2026</div><div class="orn"></div>
+<div class="label">Poruka od</div><div class="guest">Ivana Kajić i djeca</div>
+<button class="play" id="p" aria-label="Reproduciraj"><svg id="i" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+<div class="bar" id="b"><div class="fill" id="f"></div></div>
+<div class="time"><span id="c">0:00</span><span id="d">0:00</span></div>
+<div class="foot"><a href="../06/">‹ prethodna</a><a href="../">Poruka 7 od 23 · sve poruke</a><a href="../08/">sljedeća ›</a></div>
+<audio id="a" preload="metadata" src="../audio/07.mp3"></audio></main><script>
+const a=document.getElementById('a'),p=document.getElementById('p'),i=document.getElementById('i'),f=document.getElementById('f'),b=document.getElementById('b');
+const t=s=>isFinite(s)?Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'):'0:00';
+const play='<path d="M8 5v14l11-7z"/>',pause='<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>';
+p.onclick=()=>a.paused?a.play():a.pause();
+a.onplay=()=>i.innerHTML=pause;a.onpause=a.onended=()=>i.innerHTML=play;
+a.onloadedmetadata=()=>document.getElementById('d').textContent=t(a.duration);
+a.ontimeupdate=()=>{f.style.width=(a.currentTime/a.duration*100||0)+'%';document.getElementById('c').textContent=t(a.currentTime)};
+b.onclick=e=>{const r=b.getBoundingClientRect();a.currentTime=(e.clientX-r.left)/r.width*a.duration};
+</script></body></html>

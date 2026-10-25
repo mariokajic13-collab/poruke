@@ -1,0 +1,23 @@
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#3b3330;--muted:#8c7f76;--gold:#b08d57;--line:#e8dfd2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1a18;--card:#26221f;--ink:#efe7dc;--muted:#a89a8e;--gold:#cfae78;--line:#3a332e}}
+:root[data-theme="dark"]{--bg:#1d1a18;--card:#26221f;--ink:#efe7dc;--muted:#a89a8e;--gold:#cfae78;--line:#3a332e}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;max-width:420px;width:100%;padding:40px 28px 32px;text-align:center;box-shadow:0 10px 40px rgba(60,40,20,.08)}
+.couple{font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:500;letter-spacing:.5px}
+.date{color:var(--gold);font-size:12px;letter-spacing:4px;margin-top:6px}
+.orn{width:60px;height:1px;background:var(--gold);margin:28px auto}
+.label{color:var(--muted);font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.guest{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:30px;margin-top:6px;line-height:1.15}
+.play{width:84px;height:84px;border-radius:50%;border:none;background:var(--gold);color:#fff;margin:30px auto 20px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s}
+.play:active{transform:scale(.95)}
+.play svg{width:30px;height:30px}
+.bar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;cursor:pointer}
+.fill{height:100%;width:0;background:var(--gold)}
+.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:8px;font-variant-numeric:tabular-nums}
+.foot{margin-top:28px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.foot a{color:var(--gold);text-decoration:none;padding:6px 0}
+.list{list-style:none;padding:0;text-align:left;margin-top:8px}
+.list li{border-bottom:1px solid var(--line)}
+.list a{display:flex;gap:14px;align-items:baseline;padding:12px 4px;color:var(--ink);text-decoration:none;font-family:"Cormorant Garamond",serif;font-size:21px}
+.list span{color:var(--gold);font-family:Inter,sans-serif;font-size:12px;width:22px;font-variant-numeric:tabular-nums}
