@@ -843,15 +843,15 @@ function renderHost(){
   }
   if(S.phase==='who'&&r){
     h+=`<button class="btn red big" data-a="reveal" ${r.claim?'':'disabled'}>Otkrij tajnog Djeda (${Object.keys(r.votes).length} glasova)</button>`;
-    if(!r.claim){const man=Object.keys(S.players).filter(p=>isManual(p)&&p!==r.opener);if(man.length)h+=`<p class="muted" style="font-size:14px">Tajni Djed nema račun? Označi ga:</p><div class="names" style="margin-bottom:8px">${man.map(p=>`<button class="nm" data-cl="${esc(p)}">${esc(nameOf(p))}</button>`).join('')}</div>`}
+    if(!r.claim){const man=Object.keys(S.players).filter(p=>isManual(p)&&p!==r.opener);if(man.length)h+=`<p class="muted" style="font-size:14px">Tajni Djed nema stranicu otvorenu? Kad se javi u pozivu, označi ga:</p><div class="names" style="margin-bottom:8px">${man.map(p=>`<button class="nm" data-cl="${esc(p)}">${esc(nameOf(p))}</button>`).join('')}</div>`}
     h+='<button class="btn ghost" data-a="next">Preskoči</button>';
   }
   if(S.phase==='whores')h+='<button class="btn red big" data-a="next">Dalje ➜</button>';
   if(S.phase==='done')h+='<p>Igra je završena. 🎄</p>'+(rem.length?'<button class="btn" data-a="reopen">Ipak nastavi</button>':'');
   h+=`<details class="manage" ${manageOpen?'open':''}><summary>Igrači i postavke</summary>
-    <p class="muted" style="margin-top:8px;font-size:14px">Netko nema Claude račun? Dodaj ga ovdje – sudjeluje u Kolu sreće, kockama i bombi (aplikacija baca i dodaje umjesto njega).</p>
+    <p class="muted" style="margin-top:8px;font-size:14px">Netko ne može otvoriti stranicu? Dodaj ga ovdje – sudjeluje u Kolu sreće, kockama i bombi (aplikacija baca i dodaje umjesto njega).</p>
     <div class="names">${NAMES.filter(n=>!Object.values(S.players).some(v=>v.name===n)).map(n=>`<button class="nm" data-add="${esc(n)}">+ ${esc(n)}</button>`).join('')||'<span class="muted">Svih 9 je tu 🎉</span>'}</div>
-    <ul class="mlist">${Object.keys(S.players).map(p=>`<li><span>${esc(nameOf(p))}${isManual(p)?' (bez računa)':''}${S.order.includes(p)?' ✅':''}</span><button class="link" data-rm="${esc(p)}">ukloni</button></li>`).join('')}</ul>
+    <ul class="mlist">${Object.keys(S.players).map(p=>`<li><span>${esc(nameOf(p))}${isManual(p)?' (bez uređaja)':''}${S.order.includes(p)?' ✅':''}</span><button class="link" data-rm="${esc(p)}">ukloni</button></li>`).join('')}</ul>
     ${Date.now()<TARGET.getTime()?`<button class="btn ghost" data-a="lock" style="margin-bottom:6px">${S.open?'🔒 Ponovno zaključaj (ostali vide odbrojavanje)':'🔓 Otključaj za sve (test)'}</button><br>`:''}
     <button class="btn ghost" data-a="reset">${confirmReset?'Sigurno? Klikni opet':'Resetiraj redoslijed i bodove'}</button></details></div>`;
   el.innerHTML=h;
